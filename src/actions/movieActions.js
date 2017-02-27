@@ -8,9 +8,10 @@ export function loadMovieSuccess(movie){
 export function loadMovie(){
   return dispatch => {
     return getMovie().then(movie => {
+      console.log(movie);
       dispatch(loadMovieSuccess(movie));
-    }).catch(err => {
-      console.log(err);
+    }).catch(stories => {
+      console.log(stories);
     });
   };
 }

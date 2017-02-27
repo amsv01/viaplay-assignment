@@ -1,5 +1,5 @@
-import fetch from 'isomorphic-fetch';
+import {get} from './api';
 
-export function getMovie(){
-  return fetch('https://content.viaplay.se/pc-se/film/titanic-1997');
+export function getMovie(url){
+  return get(url);
 }
