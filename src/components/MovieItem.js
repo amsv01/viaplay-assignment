@@ -15,11 +15,12 @@ class MovieItem extends React.Component{
     const movie = this.props.movie;
     const data = {
       title: movie.content.title ? movie.content.title : movie.content.series.title,
-      imageUrl: this.props.type === 'portrait' ? movie.content.images.boxart.url : movie.content.images.landscape.url
+      imageUrl: this.props.type === 'portrait' ? movie.content.images.boxart.url : movie.content.images.landscape.url,
+      classes: this.props.type === 'portrait' ? 'col-md-4 col-xs-4 col-lg-1' : 'col-md-4 col-xs-6 col-lg-2'
     };
     
     return (
-      <div className="movie column" onClick={this._onClick}>
+      <div className={`movie ${data.classes}`} onClick={this._onClick}>
         <img src={data.imageUrl} alt={data.title} />
       </div>
     );  

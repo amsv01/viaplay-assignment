@@ -40,7 +40,7 @@ class Movie extends React.Component {
 
 Movie.propTypes = {
   movies: PropTypes.array.isRequired,
-  actions: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 Movie.contextTypes = {

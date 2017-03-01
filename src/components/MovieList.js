@@ -6,8 +6,8 @@ const MovieList = (props) => {
   return (
     <div className="movie-list is-10 is-offset-1">
       <h2>{props.list.title}</h2>
-      <div className="columns">
-        {movies.slice(0, props.list.styles[0] === 'portrait' ? 8 : 5).map((embed, index) =>
+      <div className="row">
+        {movies.slice(0, props.list.styles[0] === 'portrait' ? 12 : 6).map((embed, index) =>
           <MovieItem key={index} 
                      movie={embed} 
                      type={props.list.styles[0]}

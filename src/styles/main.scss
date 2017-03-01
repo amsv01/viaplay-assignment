@@ -1,9 +1,11 @@
 $color-0: #000;
 $color-1: #fff;
 
+@import "bootstrap.min.css";
 @import "bulma.css";
 @import "reset";
 @import "fonts";
+@import "mq";
 
 html, body{
   font-family: $font-open-sans;
@@ -22,9 +24,51 @@ h1, h2, h3, h4, h5, h6{
 .details-wp{
   padding-top: 20rem;
   padding-bottom: 5rem;
+
+  .hero-body{
+    padding: 1rem;
+
+    @include mq($until: desktop) {
+      padding-bottom: 0;
+    }
+  }
+  
+  @include mq($until: desktop) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .movie-title-wp{
+    @include mq($until: desktop){
+      .more-about-movie{
+        text-align: left;
+      }
+    }
+  }
   
   .movie-title{
     margin: 0 0 1rem 0;
+
+    @include mq($until: desktop) {
+      margin-bottom: 0;
+    }
+  }
+  
+  .movie-box-image{
+    
+    img{
+      max-width: 250px;
+    }
+    
+   @include mq($until: desktop){
+      padding-left: .75rem;
+    }
+  }
+
+  .tile.is-vertical{
+    @include mq($until: desktop){
+      padding-bottom: 0;
+    }
   }
   
   .genre-wp{
@@ -38,11 +82,18 @@ h1, h2, h3, h4, h5, h6{
 
       &:first-child{
         padding-left: 5px;
+
+        @include mq($until: mobile) {
+          padding-left: 0;
+        }
+        
       }
 
       &:last-child{
         padding-right: 0;
       }
+
+      
     }
 
     a + a{
@@ -107,6 +158,11 @@ h1, h2, h3, h4, h5, h6{
       &:first-child{
         padding-left:0;
       }
+
+      @include mq($until: mobile) {
+        display: block;
+        padding: 2px 0;
+      }
     }
 
     span + span::before{
@@ -116,6 +172,10 @@ h1, h2, h3, h4, h5, h6{
       top: -4px;
       font-size: 1.5rem;
       font-weight: 500;
+
+      @include mq($until: mobile) {
+        display: none;
+      }
     }
   }
   
@@ -126,12 +186,21 @@ h1, h2, h3, h4, h5, h6{
   
   h2{
     font-size: 2rem;
-    margin: 3rem 0 1rem; 
+    margin: 3rem 0 1rem;
+
+    @include mq($until: tablet){
+      margin-top: 1rem;
+    }
   }
   
   .movie{
     position: relative;
     cursor: pointer;
+    
+    @include mq($until: tablet){
+      margin-bottom: 1rem;
+      text-align: center;
+    }
     
     .name{
       position: absolute;

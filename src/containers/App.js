@@ -25,7 +25,7 @@ export const App = (props) => {
 
 App.propTypes = {
   isFetched: PropTypes.bool.isRequired,
-  children: PropTypes.obj.isRequired
+  children: PropTypes.object
 };
 
 const mapStateToProps = state => {

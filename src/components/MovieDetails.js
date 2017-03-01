@@ -5,7 +5,7 @@ const MovieDetails = (props) => {
   
   return (
     <div className="details-wp">
-      <div className="cover-wp">
+      <div className="cover-wp visible-lg">
         <span className="image-wp">
           <img src={movie.content.images.landscape.url} alt={movie.content.title} />
         </span>
@@ -14,16 +14,16 @@ const MovieDetails = (props) => {
         <div className="tile is-ancestor">
           <div className="tile is-vertical">
             <div className="tile">
-              <div className="tile is-parent is-2">
+              <div className="tile is-parent is-2 col-xs-12">
                 <article className="tile is-child">
-                  <figure className="image">
+                  <figure className="image movie-box-image">
                     <img src={movie.content.images.boxart.url} alt={movie.content.title} />
                   </figure>
                 </article>
               </div>
-              <div className="tile is-parent is-vertical">
+              <div className="tile is-parent is-10-desktop col-xs-12 is-vertical movie-title-wp">
                 <div className="hero-body">
-                <article className="tile is-child ">
+                <article className="tile is-child">
                   <h1 className="movie-title title is-1" style={{fontWeight: 'bold', textTransform: 'uppercase'}}>{movie.content.title}</h1>
                   <p className="movie-details">
                     <span className="genre-wp">
