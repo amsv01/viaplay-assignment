@@ -1,17 +1,20 @@
 import * as types from './actionTypes';
-import {getMovie} from '../api/movieApi';
+import {get} from '../api/api';
+import { browserHistory } from 'react-router';
 
 export function loadMovieSuccess(movie){
   return {type: types.LOAD_MOVIE_SUCCESS, movie};
 }
 
-export function loadMovie(){
+export function loadMovie(url){
   return dispatch => {
-    return getMovie().then(movie => {
-      console.log(movie);
+    return get(url).then(movie => {
+      const moviePublicPath = movie._embedded['viaplay:blocks'][0]._embedded[`viaplay:${movie.pageType}`].publicPath;
+      browserHistory.push(`/movie/${moviePublicPath}`);
       dispatch(loadMovieSuccess(movie));
     }).catch(stories => {
-      console.log(stories);
+      //TODO: Should handle errors
+      throw stories;
     });
   };
 }

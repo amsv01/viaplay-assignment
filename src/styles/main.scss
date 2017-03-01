@@ -1,0 +1,150 @@
+$color-0: #000;
+$color-1: #fff;
+
+@import "bulma.css";
+@import "reset";
+@import "fonts";
+
+html, body{
+  font-family: $font-open-sans;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $font-open-sans-condensed;
+}
+
+.hero.is-fullheight{
+  padding: 0 0 5rem;
+}
+
+.details-wp{
+  padding-top: 20rem;
+  padding-bottom: 5rem;
+  
+  .movie-title{
+    margin: 0 0 1rem 0;
+  }
+  
+  .genre-wp{
+    a{
+      position: relative;
+      padding-left: 15px;
+      padding-right: 10px;
+      &:hover{
+        color: lighten($color-0, 40%);
+      }
+
+      &:first-child{
+        padding-left: 5px;
+      }
+
+      &:last-child{
+        padding-right: 0;
+      }
+    }
+
+    a + a{
+      &::before{
+        position: absolute;
+        left: 0;
+        top: 2px;
+        content: '/';
+        font-size: 25px;
+        font-weight: 100;
+      }
+    }
+  }
+  
+  .more-about-movie{
+    padding: 1.2rem .4rem .6rem; 
+    line-height: 1.5rem;
+  }
+  
+  .cover-wp{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    
+    .image-wp{
+      position: relative;
+      margin: 0 auto;
+      z-index: 0;
+      display: inline-block;
+      
+      &::after{
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        box-shadow: inset 163px 0 276px 0 #ffdd57, inset -100px 0 140px 0 #ffdd57, inset 0 -260px 335px 0 #ffdd57;
+        z-index: 6;
+        width: 100%;
+        height: 100%;
+      }
+      
+      img{
+        width: 1024px;
+        z-index: 0;
+      }
+    }
+    
+  }
+  
+  .movie-details{
+    font-family: $font-open-sans-condensed;
+    font-weight: 400;
+    font-size: 1.2rem;
+    
+    span{
+      display: inline-block;
+      padding-left: 1.2rem;
+      padding-right: .5rem;
+      position: relative;
+      
+      &:first-child{
+        padding-left:0;
+      }
+    }
+
+    span + span::before{
+      content: '|';
+      position: absolute;
+      left: 0;
+      top: -4px;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+  
+}
+
+.movie-list{
+  padding: 0 2rem;
+  
+  h2{
+    font-size: 2rem;
+    margin: 3rem 0 1rem; 
+  }
+  
+  .movie{
+    position: relative;
+    cursor: pointer;
+    
+    .name{
+      position: absolute;
+      bottom: 0;
+      font-size: .2rem;
+    }
+    
+    img{
+      transition: all .2s linear;
+
+      &:hover{
+        box-shadow: 0 0 0 5px rgba($color-1, .5);
+      }
+    }
+  }
+}

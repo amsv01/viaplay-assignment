@@ -6,9 +6,13 @@ import {Provider} from 'react-redux';
 import {Router, browserHistory } from 'react-router';
 import routes from './routes';
 import {loadMovie} from './actions/movieActions';
+import {homeUrl} from './constants/urlConstants';
+
+require('./favicon.ico');
+import './styles/main.scss';
 
 const store = configureStore();
-store.dispatch(loadMovie());
+store.dispatch(loadMovie(homeUrl));
 
 render(
   <Provider store={store}>

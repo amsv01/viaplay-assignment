@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-export const get = (resType = 'json') => {
+export const get = (url, resType = 'json') => {
   return fetch(url).then(response => {
     if (response.status >= 400) {
       throw new Error("Bad response from server");
@@ -9,5 +9,5 @@ export const get = (resType = 'json') => {
       return response.json();
     }
     return response;
-  })
+  });
 };
