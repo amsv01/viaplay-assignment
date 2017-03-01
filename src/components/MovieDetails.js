@@ -24,7 +24,12 @@ const MovieDetails = (props) => {
               <div className="tile is-parent is-10-desktop col-xs-12 is-vertical movie-title-wp">
                 <div className="hero-body">
                 <article className="tile is-child">
-                  <h1 className="movie-title title is-1" style={{fontWeight: 'bold', textTransform: 'uppercase'}}>{movie.content.title}</h1>
+                  <h1 className="movie-title title is-1" style={{fontWeight: 'bold', textTransform: 'uppercase'}}>
+                    <span>
+                      {movie.content.title}
+                    </span>
+                    <a href="#" className="play-button button btn-lg">Watch Now<i className="glyphicon glyphicon-play"></i></a>
+                  </h1>
                   <p className="movie-details">
                     <span className="genre-wp">
                     {movie._links['viaplay:genres'].map((genre, index) => {

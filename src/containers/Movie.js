@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from '../actions/movieActions';
+import {loadMovie} from '../actions/movieActions';
 import MovieDetails from '../components/MovieDetails';
 import MovieList from '../components/MovieList';
 
-class Movie extends React.Component {
+export class Movie extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -44,7 +44,7 @@ Movie.propTypes = {
 };
 
 Movie.contextTypes = {
-  router: PropTypes.object.isRequired
+  router: PropTypes.object
 };
 
 function mapStateToProps(state){
@@ -59,7 +59,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators({loadMovie}, dispatch)
   };
 }
 
